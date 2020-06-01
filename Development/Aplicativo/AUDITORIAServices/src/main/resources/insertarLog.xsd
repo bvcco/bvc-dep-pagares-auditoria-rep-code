@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://deceval.com/auditoria/services/xsd" attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://deceval.com/auditoria/services/xsd">
+    <xs:simpleType name="ConstanteReferenciaOperacionType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato que identifica la constante de operacion a insertar en el log.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="150"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ConstanteReferenciaOrigenType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato que identifica la constante de origen a insertar en el log.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="150"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="CodigoOrigenType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato que identifica codigo asociado al origen a insertar en el log.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="IdUsuarioType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato que identifica el idUsuario a insertar en el log.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:int"/>
+    </xs:simpleType>
+    <xs:simpleType name="UserNameType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato que identifica el nombre de usuario a insertar en el log.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="IpUsuarioType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato que identifica la ip del usuario a insertar en el log.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="IpServidorType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato que identifica la ip del servidor a insertar en el log.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="20"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="DescripcionAnotacionType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato con la descripcion a insertar en el log.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ResultadoCreacionType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato para el resultado de la creacion del log. ALFANUMERICO 255.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NombreTablaType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato que identifica el nombre de la tabla  auditada. ALFANUMERICO 50.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="NombreCampoType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato que identifica el nombre del campo auditado. ALFANUMERICO 50.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="ValorCampoType">
+        <xs:annotation>
+            <xs:documentation>Tipo de dato que contiene el valor del campo auditado. ALFANUMERICO 255.</xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0"/>
+            <xs:maxLength value="255"/>
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:complexType name="EstructuraTablaType">
+        <xs:annotation>
+            <xs:documentation>Estructura de campos que componen la descripcion de una tabla</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="nombreTabla" type="NombreTablaType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="nombreCampo" type="NombreCampoType"/>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="valorCampo" type="ValorCampoType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ListaEstructurasType">
+        <xs:annotation>
+            <xs:documentation>Lista que contiene x numero de estructuras de tablas</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element maxOccurs="unbounded" minOccurs="0" name="estructuraTabla" type="EstructuraTablaType"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="FaultType">
+        <xs:annotation>
+            <xs:documentation>Fault type</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element minOccurs="0" name="errorCode" type="xs:string"/>
+            <xs:element minOccurs="0" name="reason" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="InsertarLogRequestType">
+        <xs:annotation>
+            <xs:documentation>Tipo del elemento de entrada que contiene los datos
+                                          necesarios para registrar una accion auditable</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="constanteReferenciaOperacion" type="ConstanteReferenciaOperacionType">
+                <xs:annotation>
+                    <xs:documentation>constante de operacion a realizar log</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="constanteReferenciaOrigen" type="ConstanteReferenciaOrigenType">
+                <xs:annotation>
+                    <xs:documentation>&gt;constante de origen</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="codigoOrigen" type="CodigoOrigenType">
+                <xs:annotation>
+                    <xs:documentation>codigo segun origen</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="idUsuario" type="IdUsuarioType">
+                <xs:annotation>
+                    <xs:documentation>id del usuario</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="userName" type="UserNameType">
+                <xs:annotation>
+                    <xs:documentation>nombre del usuario</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ipUsuario" type="IpUsuarioType">
+                <xs:annotation>
+                    <xs:documentation>ip del usuario</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ipServidor" type="IpServidorType">
+                <xs:annotation>
+                    <xs:documentation>ip del servidor</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="descripcionAnotacion" type="DescripcionAnotacionType">
+                <xs:annotation>
+                    <xs:documentation>texto con observaciones de la anotacion</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="listaEstructuras" nillable="true" type="ListaEstructurasType">
+                <xs:annotation>
+                    <xs:documentation>Vector que contiene la lista de estructuras de tablas</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="InsertarLogResponseType">
+        <xs:annotation>
+            <xs:documentation>Tipo del elemento de salida contiene los datos de respuesta de una registro de log</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="resultadoCreacion" type="ResultadoCreacionType">
+                <xs:annotation>
+                    <xs:documentation>Resultado de la creacion del log</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="InsertarLogRequest" type="InsertarLogRequestType">
+        <xs:annotation>
+            <xs:documentation>Elemento de entrada que contiene los datos
+                                          necesarios para registrar una accion auditable</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="InsertarLogResponse" type="InsertarLogResponseType">
+        <xs:annotation>
+            <xs:documentation>Elemento de salida contiene los datosde respuesta de una registro de log</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    <xs:element name="Fault" type="FaultType">
+        <xs:annotation>
+            <xs:documentation>Elemento que contiene los datos de un Fault SOAP</xs:documentation>
+        </xs:annotation>
+    </xs:element>
+</xs:schema>

@@ -1,0 +1,34 @@
+﻿/***************************************************************************/
+/*  Archivo:            Nombre del archivo                                 */
+/*  Base de datos:      Nombre BD                                          */
+/*  Aplicación:         Nombre Aplicación                                  */
+/*  Elaborado por:      Nombre desarrollador                               */
+/*  Fecha: 		dd/mm/yyyy                                         */
+/***************************************************************************/
+/*                           IMPORTANTE                                    */
+/*    Este programa es propiedad de BVC. Ha sido desarrollado   	   */
+/*    por <Nombre Empresa>  					           */
+/*    Su uso no autorizado queda expresamente prohibido así como           */
+/*    cualquier alteración o agregado hecho por alguno de sus              */
+/*    usuarios sin el debido procedimiento establecido en la compañía y la */
+/*    Vic. de TI de la Bolsa de Valores de Colombia o su representante.    */
+/***************************************************************************/
+/*                           PROPOSITO                                     */
+/* Se describe el propósito del Script/Sp/Triger etc   			   */
+/*             								   */
+/***************************************************************************/
+/*                          MODIFICACIONES/VERSIONES                       */
+/*     FECHA              AUTOR            RAZON		           */
+/*  dd/mm/YYYY            Quien modifica   Descripción pequeña el porqué   */
+/***************************************************************************/
+use [Database]
+go
+/*Asegurar existencias; */
+if exists... else... 
+go
+--Realizar uso de prints para las acciones que realiza en las fases el Script
+Print 'Inicia modificacion del catalogo XXXXX'
+go
+--Hacer uso de comentarios en el código
+--Adicion del valor: XXXX
+go

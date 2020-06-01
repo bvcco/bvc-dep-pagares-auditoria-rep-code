@@ -1,0 +1,8 @@
+Separar la documentación conforme las capas de la misma.
+Por ejemplo: 
+1-----------------
+-Diagrama de Arquitectura 
+-Manual Técnico y de instalación
+2 ---------------
+-MER
+-Diccionario de datos 

@@ -1,0 +1,542 @@
+.backarriba {
+	background-image: url(../../images/backazul.jpg);
+}
+.backboton {
+	background-image: url(images/backboton.jpg);
+}
+.backbotonrecep {
+	background-image: url(../../images/backbotonrecep.gif);
+}
+.tablapesta {
+	background-color: #FFFFFF;
+	width: 900px;
+	border: 1px solid #B7D3DB;
+}
+.tablablanca2 {
+	background-color: #FFFFFF;
+	border: 1px solid #B7D3DB;
+}
+.titablapesta {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #5595A8;
+	background-color: #F1F7F8;
+	padding-left:15px;
+	height: 15px;
+}
+.titfechahorario {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color:  #B07402;
+	background-color: #FEDFA5;
+	text-align: right;
+	padding-right:10px;
+}
+
+.tablagenerica {
+	background-color: #F5F9FC;
+	border: 1px solid #D6E7EB;
+}
+.tittablagenerica {
+	border: 1px solid #D6E7EB;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: normal;
+	font-weight: bold;
+	color: #0A6094;
+	background-image: url(../../images/backtitabla.jpg);
+	padding-left:15px;
+	height: 16px;
+}
+.backabajo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #484848;
+	background-image: url(../../images/abajo.jpg);
+	height: 35px;
+	text-align: right;
+	padding-top:20px;
+	padding-right:15px;
+}
+
+.generica {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #353535;
+}
+.button {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #007CB9;
+	border: 1px solid #0073AA;
+		}
+.tablaexterna {
+	border: 1px solid #DBE4F0;
+}
+
+.tablalogo {
+	height: 152px;
+	width: 725px;
+}
+
+.txtazul {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #0091CC;
+}
+.txtgris {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #383838;
+}
+.tablanca {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #0091CC;
+	background-color: #FFFFFF;
+	border-top-width: 0px;
+	border-right-width: 0px;
+	border-bottom-width: 0px;
+	border-left-width: 0px;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	margin: 0px;
+	padding: 0px;
+}
+a{
+	outline: none;
+}
+
+a:active{
+	outline: none;
+}
+
+#horario{
+text-align:left;
+}
+
+#sideBar h2{
+	color:#FFFFFF;
+	font-size:110%;
+	font-family:arial;
+	margin:10px 10px 10px 10px;
+	font-weight:bold !important;
+}
+
+#sideBar h2 span{
+	font-size:125%;
+	font-weight:normal !important;
+}
+
+#sideBar ul{
+	margin:0px 0px 0px 0px;
+	padding:0px 0px 0px 0px;
+}
+
+#sideBar li{
+	margin:0px 10px 3px 10px;
+	padding:2px;
+	list-style-type:none;
+	display:block;
+	background-color:#DA1074;
+	width:177px;
+	color:#FFFFFF;
+}
+
+#sideBar li a{
+	width:100%;
+}
+
+#sideBar li a:link,
+#sideBar li a:visited{
+	color:#FFFFFF;
+	font-family:verdana;
+	font-size:100%;
+	text-decoration:none;
+	display:block;
+	margin:0px 0px 0px 0px;
+	padding:0px;
+	width:100%;
+}
+
+#sideBar li a:hover{
+	color:#FFFFFF;
+	text-decoration:underline;
+}
+
+#horario{
+	position: absolute;
+	width: 424px;
+	height: 230px;
+	top: 242px;
+	right:312px;
+	background-image:url(../../images/background.gif);
+	background-position:top left;
+	background-repeat:repeat-y;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+#sideBarTab{
+	float:left;
+	height:137px;
+	width:28px;
+}
+
+#sideBarTab img{
+	border:0px solid #FFFFFF;
+}
+
+#sideBarContents{
+	float:left;
+	overflow:hidden !important;
+	width:638px;
+	height:465px;
+}
+
+#sideBarContentsInner{
+	width:200px;
+}
+.menu {
+	position:absolute;
+	z-index:50;
+	width: 262px;
+	overflow: hidden;
+}
+.ejemplo2 {
+	position:absolute;
+	z-index:51;
+	width: 427px;
+	overflow: hidden;
+	left: 666px;
+	top: 241px;
+	height: 228px;
+	visibility: hidden;
+}
+.menu_header {
+  width:198px;
+  cursor: pointer;
+}
+.menu_block {
+  overflow:hidden;
+  width:198px;  
+}
+.menu_block div {
+}
+
+.page_content{
+	top:50;
+	left:5;
+	position:absolute;
+}
+.titrojoalertas {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #CE142B;
+}
+.backrojo {
+	font-size: 11px;
+	font-weight: bold;
+	color: #CE142B;
+	text-decoration: none;
+	background-image: url(../../images/backrojo.gif);
+	padding-left:10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.backazul {
+	font-size: 11px;
+	font-weight: bold;
+	color: #0091CC;
+	text-decoration: none;
+	background-image: url(../../images/backazul.gif);
+	padding-left:10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.backgris {
+	font-size: 11px;
+	font-weight: bold;
+	color: #626262;
+	text-decoration: none;
+	background-image: url(../../images/backgris.gif);
+	padding-left:10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.backamarillo {
+	font-size: 11px;
+	font-weight: bold;
+	color: #D28902;
+	text-decoration: none;
+	background-image: url(../../images/backamarillo.gif);
+	padding-left:10px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.linkrojo {
+	font-size: 11px;
+	font-weight: bold;
+	color: #CE142B;
+	padding-left:5px;
+}
+.linkrojo:hover{
+	font-size: 11px;
+	font-weight: bold;
+	color: #800D1C;
+	text-decoration: underline;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.linkazul {
+	font-size: 11px;
+	font-weight: bold;
+	color: #0091CC;
+	padding-left:5px;
+}
+.linkazul:hover{
+	font-size: 11px;
+	font-weight: bold;
+	color: #005579;
+	text-decoration: underline;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.linkgris {
+	font-size: 11px;
+	font-weight: bold;
+	color: #7F7F7F;
+	padding-left:5px;
+}
+.titcafehorario {
+	font-size: 11px;
+	font-weight: bold;
+	color: #88694A;
+	font-family: Arial, Helvetica, sans-serif;
+		}
+
+.linkgris:hover{
+	font-size: 11px;
+	font-weight: bold;
+	color: #333333;
+	text-decoration: underline;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.tablalertas {
+	background-color: #E5ECF3;
+	border: 1px solid #C9D6E7;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	color: #074870;
+}
+.pestana {
+	height: 88px;
+	width: 27px;
+}
+.loginazul {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-image: url(../../images/loginbackazul.jpg);
+	height: 133px;
+}
+.receptorpes {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-image: url(../../images/pbakground.jpg);
+	padding-left:10px;
+	padding-top:16px;
+	height: 34px;
+	width: 150px;
+}
+.originadorpes {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-image: url(../../images/pbakgroundorig.jpg);
+	padding-left:10px;
+	padding-top:16px;
+	height: 34px;
+	width: 150px;
+}
+
+.abajo {
+	background-color: #D2DEEC;
+}
+.tgabmenu {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: underline;
+	background-color: #09598A;
+	border: 2px solid #B7D3DB;
+}
+.linkblanco {
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding-left:10px;
+}
+.linkblanco:hover{
+	font-size: 10px;
+	font-weight: bold;
+	color: #D0E1FD;
+	padding-left:5px;
+}
+.linkblanco {
+	font-size: 10px;
+	font-weight: bold;
+	color: #FFFFFF;
+	padding-left:5px;
+}
+.linkblanco:td{
+	padding-left:10px;
+}.tablatitulo {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	background-color: #0384C3;
+	padding-top:1px;
+	padding-bottom: 1px;
+	padding-left:8px;
+	}
+.tablanota {
+	background-color: #FFF2F2;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #D53109;
+	padding-top:1px;
+	padding-bottom: 1px;
+	border: 1px solid #FFDFDF;
+	text-align: center;
+	vertical-align: middle;
+}
+.tablanotarriba {
+	background-color: #FFE3DD;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #D53109;
+	padding-top:1px;
+	padding-bottom: 1px;
+	border: 1px solid #FFDFDF;
+	text-align: left;
+}
+
+.campogris {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-style: normal;
+	font-weight: normal;
+	color: #375A6C;
+	background-color: #A7C2D1;
+	border: 1px solid #93B6C8;
+	text-align: left;
+}
+.titsalir {
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #FEC794;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #EA7501;
+	background-color: #FFF5D7;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #FEC794;
+	text-decoration: underline;
+}
+.tablagrilla {
+	background-color: #EBF5FC;
+	border: 1px solid #A4CDEC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #454545;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.tablagrilla_blanca {
+	background-color: #FFFFFF;
+	border: 1px solid #A4CDEC;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #454545;
+	text-align: center;
+	vertical-align: middle;
+	height: 17px;
+}
+.tablagrilla_color{
+	background-color: #CFE2F1;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: normal;
+	color: #454545;
+	text-align: center;
+	vertical-align: middle;
+	height: 17px;
+}
+td.tablagrilla_color, td.tablagrilla_blanca {
+	border-left: 1px solid #A4CDEC;
+	border-right:  1px solid #A4CDEC;
+	}
+.titulogrilla {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #FFFFFF;
+	text-decoration: none;
+	background-image: url(images/backgrilla.jpg);
+	background-position: center center;
+	text-align: center;
+}
+.pestana {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background-image: url(images/fondopesta.jpg);
+	background-repeat: repeat-x;
+	height: 25px;
+	width: 250px;
+}
+.pestana th {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: normal;
+	color: #FFFFFF;
+	background-image: url(images/fondomedio.jpg);
+	background-repeat: repeat-y;
+	height: 25px;
+	border: 1px solid #59ACD4;
+}
+.linkazul2 {
+	font-size: 11px;
+	font-weight: bold;
+	color: #0091CC;
+}
+.linkazul2:hover{
+	font-size: 11px;
+	font-weight: bold;
+	color: #005579;
+	text-decoration: underline;
+	font-family: Arial, Helvetica, sans-serif;
+}

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file was auto-generated from WSDL -->
+<!-- by the Apache Axis2 version: 1.4  Built on : Apr 26, 2008 (06:24:30 EDT) -->
+<serviceGroup>
+    <service name="InsertarLogAUDITORIAService">
+        <messageReceivers>
+            <messageReceiver mep="http://www.w3.org/ns/wsdl/in-out" class="com.deceval.auditoria.services.adb.service.InsertarLogAUDITORIAServiceMessageReceiverInOut"/>
+        </messageReceivers>
+        <parameter name="ServiceClass">com.deceval.auditoria.services.adb.service.InsertarLogAUDITORIAServiceSkeleton</parameter>
+        <parameter name="useOriginalwsdl">true</parameter>
+        <parameter name="modifyUserWSDLPortAddress">true</parameter>
+        <operation name="insertarLog" mep="http://www.w3.org/ns/wsdl/in-out" namespace="http://deceval.com/auditoria/services/">
+            <actionMapping>insertarLog</actionMapping>
+            <outputActionMapping>http://deceval.com/auditoria/services/insertarLogAUDITORIAPort/insertarLogResponse</outputActionMapping>
+            <faultActionMapping faultName="fault">http://deceval.com/auditoria/services/insertarLogAUDITORIAPort/insertarLog/Fault/fault</faultActionMapping>
+            <faultActionMapping faultName="FaultMsg">urn:insertarLogFaultMsg</faultActionMapping>
+        </operation>
+    </service>
+</serviceGroup>
