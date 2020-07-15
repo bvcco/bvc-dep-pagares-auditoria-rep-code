@@ -20,7 +20,7 @@ public class ConvLogHistVOEnCasilla {
 		valor 				= entrada.getValorAtributo();
 		esValorEspecial 	= false;			
 		
-		if(valor == null) {
+		if(valor == null || valor.equals("")) {
 			ResourceBundle bundle 	= ResourceBundle.getBundle	(BUNDLEBASENAME);
 			String esNulo 			= bundle.getString			(BUNDLEKEYESNULO);				
 			valor 					= esNulo;
