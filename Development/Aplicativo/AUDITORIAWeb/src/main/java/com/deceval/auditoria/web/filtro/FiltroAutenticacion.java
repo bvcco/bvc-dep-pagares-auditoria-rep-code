@@ -74,6 +74,10 @@ public class FiltroAutenticacion implements Filter
     	String encodedClientHeader = request.getHeader("Entrust-Client");
     	
 		UsuarioData usuarioVO = null;
+
+        String ipUsuario =  ValidadorIp.obtenerIpDeHeader(request.getHeader("X-Forwarded-For")) ;
+        String ipServidor = request.getLocalAddr();
+
 		recurso = request.getRequestURI().toString();
 		/** Se cortan los 11 primeros digitos para hacer forward (/auditoria/) **/
 		recurso = recurso.substring(11, recurso.length());
@@ -171,9 +175,10 @@ public class FiltroAutenticacion implements Filter
                         /**
                          * OJO BORRAR *
                          */
-                        /*if(request.getParameter("j_username") != null){
+                        /*
+                        if(request.getParameter("j_username") != null){
                          nombreCompleto = request.getParameter("j_username");
-                         if (nombreCompleto!=null) System.out.println("nombreCompleto:"+nombreCompleto);		
+                         if (nombreCompleto!=null) System.out.println("nombreCompleto:"+nombreCompleto);
                          ServiciosSeguridad servicios = new ServiciosSeguridad();
                          System.out.println("Va a consultar");
                          usuarioVO = servicios.getUsuarioPorNombresApellidos( nombreCompleto.trim() );
@@ -184,7 +189,8 @@ public class FiltroAutenticacion implements Filter
                          }else{
                          System.out.println("No hubo resultado en BD getUsuarioPorNombresApellidos |"+nombreCompleto+"|");
                          }
-                         }*/
+                         }
+                         */
                         /**
                          * OJO BORRAR *
                          */
@@ -192,7 +198,7 @@ public class FiltroAutenticacion implements Filter
 			
                 if (usuarioVO != null) {
                 if (usuarioVO.getUsuarioActivo() != null &&
-                    usuarioVO.getUsuarioActivo().booleanValue() == false)
+                    usuarioVO.getUsuarioActivo() == 0)
                 {
                     session.setAttribute("mensaje_error_logeo", "El usuario (" + nombreCompleto + ") está suspendido, pongase en contacto con el administrador del sistema.");
                     url = PAGINA_LOGIN;
@@ -223,8 +229,8 @@ public class FiltroAutenticacion implements Filter
 				
 				if (subirUsuario)
 				{
-              	    usuarioVO.setIpServidor(request.getLocalAddr());
-            	    usuarioVO.setIpLocal(request.getRemoteAddr());
+              	    usuarioVO.setIpServidor(ipServidor);
+            	    usuarioVO.setIpLocal(ipUsuario);
 					session.setAttribute("usuarioAutenticado", usuarioVO);
 
 					session.setAttribute("nombreUsuarioParaMostrarEnEncabezado", usuarioVO.getNombreApellido());
