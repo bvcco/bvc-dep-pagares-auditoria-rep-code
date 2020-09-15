@@ -2,10 +2,16 @@
 <weblogic-web-app xmlns="http://xmlns.oracle.com/weblogic/weblogic-web-app"
                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                   xsi:schemaLocation="http://xmlns.oracle.com/weblogic/weblogic-web-app http://xmlns.oracle.com/weblogic/weblogic-web-app/1.0/weblogic-web-app.xsd">
-    <jsp-descriptor>     
+    <jsp-descriptor>
         <page-check-seconds>1</page-check-seconds>
         <verbose>false</verbose> 
         <keepgenerated>true</keepgenerated>
         <debug>true</debug>
-    </jsp-descriptor>   
+    </jsp-descriptor>
+
+    <!--Comentarenambientessinclustercomodesarrollo-->
+    <session-descriptor>
+        <cookie-secure>true</cookie-secure>
+        <persistent-store-type>replicated</persistent-store-type>
+    </session-descriptor>
 </weblogic-web-app>
