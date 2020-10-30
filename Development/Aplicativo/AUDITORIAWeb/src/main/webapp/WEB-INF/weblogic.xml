@@ -13,5 +13,8 @@
     <session-descriptor>
         <cookie-secure>true</cookie-secure>
         <persistent-store-type>replicated</persistent-store-type>
+        	<cookie-http-only>false</cookie-http-only>  
+		<url-rewriting-enabled>false</url-rewriting-enabled>
+ 		<cookie-name>Auditoria</cookie-name>
     </session-descriptor>
 </weblogic-web-app>

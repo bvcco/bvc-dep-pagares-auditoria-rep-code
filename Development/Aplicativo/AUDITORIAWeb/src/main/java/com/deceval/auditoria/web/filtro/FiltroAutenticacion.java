@@ -2,9 +2,11 @@ package com.deceval.auditoria.web.filtro;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.ResourceBundle;
 
@@ -46,10 +48,64 @@ public class FiltroAutenticacion implements Filter
   private String PAGINA_INFORMATIVO = 		"/faces/jsp/login/informativo.jsp";
   
   private boolean subirUsuario = false;
+  
+  //Inicio - FJVL- 28/10/2020 Se agregan nuevos headers a la cabecera segun recomendacion de ETH
+  private String ATRIBUDO_HEADER_CSP =  "Content-Security-Policy";
+  private String ATRIBUDO_HEADER_XCSP = "X-Content-Security-Policy";
+  private String ATRIBUTO_HEADER_XWCSP ="X-WebKit-CSP";
+  private String ATRIBUTO_HEADER_XXSSP =  "X-XSS-Protection";
+  private String VALOR_HEADER_XXSSP ="1; mode=block";   //Deshabilita el XSS
+  /** Configuration member to specify if web app use web fonts */
+  public static final boolean APP_USE_WEBFONTS = false;
+  /** Configuration member to specify if web app use videos or audios */
+  public static final boolean APP_USE_AUDIOS_OR_VIDEOS = false;
+  /** Configuration member to specify if filter must add CSP directive used by Mozilla (Firefox) */
+  public static final boolean INCLUDE_MOZILLA_CSP_DIRECTIVES = true;
+  /** Collection of CSP polcies that will be applied */
+  private String policies = null;
+  //Fin - FJVL- 28/10/2020 Se agregan nuevos headers a la cabecera segun recomendacion de ETH
 
   public void init(FilterConfig filterConfig) throws ServletException
   {
     _filterConfig = filterConfig;
+    
+	   // Define CSP policies
+	   // Loading policies for Frame and Sandboxing will be dynamically defined : We need to know if context use Frame
+       List<String> cspPolicies = new ArrayList<String>();
+	   String originLocationRef = "'self'";
+	   // --Disable default source in order to avoid browser fallback loading using 'default-src' locations
+	   //cspPolicies.add("default-src 'none'");
+	   // --Define loading policies for Scripts
+	   cspPolicies.add("script-src " + originLocationRef + " 'unsafe-inline' 'unsafe-eval'");
+	   if (INCLUDE_MOZILLA_CSP_DIRECTIVES) {
+	       cspPolicies.add("options inline-script eval-script");
+	       cspPolicies.add("xhr-src 'self'");
+	   }
+	   // --Define loading policies for Plugins
+	   cspPolicies.add("object-src " + originLocationRef);
+	   // --Define loading policies for Styles (CSS)
+	   //cspPolicies.add("style-src " + originLocationRef);
+	   // --Define loading policies for Images
+	   cspPolicies.add("img-src " + originLocationRef);
+	   // --Define loading policies for Form
+	   cspPolicies.add("form-action " + originLocationRef);
+	   // --Define loading policies for Audios/Videos
+	   if (APP_USE_AUDIOS_OR_VIDEOS) {
+	       cspPolicies.add("media-src " + originLocationRef);
+	   }
+	   // --Define loading policies for Fonts
+	   if (APP_USE_WEBFONTS) {
+	       cspPolicies.add("font-src " + originLocationRef);
+	   }
+	   // --Define loading policies for Connection
+	   cspPolicies.add("connect-src " + originLocationRef);
+	   // --Define loading policies for Plugins Types
+	   cspPolicies.add("plugin-types application/pdf application/x-shockwave-flash");
+	   // --Define browser XSS filtering feature running mode
+	   cspPolicies.add("reflected-xss block");
+	
+	   // Target formating
+	   this.policies = cspPolicies.toString().replaceAll("(\\[|\\])", "").replaceAll(",", ";").trim();
   }
 
   public void destroy()
@@ -78,6 +134,12 @@ public class FiltroAutenticacion implements Filter
         String ipUsuario =  ValidadorIp.obtenerIpDeHeader(request.getHeader("X-Forwarded-For")) ;
         String ipServidor = request.getLocalAddr();
 
+		//FJVL- 28/10/2020 Se agregan nuevos headers a la cabecera segun recomendacion de ETH
+		response.addHeader(ATRIBUDO_HEADER_CSP, policies);
+		response.addHeader(ATRIBUDO_HEADER_XCSP, policies);
+		response.addHeader(ATRIBUTO_HEADER_XWCSP, policies);
+		response.addHeader(ATRIBUTO_HEADER_XXSSP, VALOR_HEADER_XXSSP);
+        
 		recurso = request.getRequestURI().toString();
 		/** Se cortan los 11 primeros digitos para hacer forward (/auditoria/) **/
 		recurso = recurso.substring(11, recurso.length());
