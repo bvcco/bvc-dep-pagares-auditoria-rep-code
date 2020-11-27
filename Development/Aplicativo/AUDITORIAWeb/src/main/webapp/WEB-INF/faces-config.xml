@@ -10,8 +10,15 @@
         <message-bundle>
             com.deceval.auditoria.web.resources.messages.MessagesResources
         </message-bundle>
+        <resource-bundle>
+	        <base-name>com.deceval.auditoria.web.resources.messages.MessagesResources</base-name>
+	        <var>msg</var>
+    	</resource-bundle>
         <locale-config>
             <default-locale>es</default-locale>
+        </locale-config>
+        <locale-config>
+        	<default-locale>en</default-locale>
         </locale-config>
         <view-handler>org.ajax4jsf.application.AjaxViewHandler</view-handler>
     </application>

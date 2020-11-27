@@ -7,7 +7,6 @@
     "http://www.w3.org/TR/html4/loose.dtd">
 
 <f:subview id="header">
-    <f:loadBundle basename="com.deceval.auditoria.web.resources.messages.MessagesResources" var="msg"/>
     <h:form id="headerForm">
         <tr>
             <td><img src="<%=request.getContextPath()%>/images/logo_auditoria.jpg" width="1024" height="93" />

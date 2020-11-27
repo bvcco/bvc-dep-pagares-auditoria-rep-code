@@ -5,7 +5,7 @@
 <%@ taglib uri="http://richfaces.org/a4j" prefix="a4j"%>
 <%@ taglib uri="http://richfaces.org/rich" prefix="rich"%>
 <f:subview id="consultOffer">
-	<f:loadBundle basename="com.deceval.ttv.web.resources.messages.MessagesResources" var="msg" />
+	
 	<html>
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />

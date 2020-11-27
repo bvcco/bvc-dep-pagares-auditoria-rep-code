@@ -13,8 +13,10 @@
     <version>1.0.0</version>
     <name>AUDITORIA : AUDITORIAIntegration</name>
   
-    <properties>
+   <properties>
         <project.build.sourceEncoding>ISO-8859-1</project.build.sourceEncoding>
+        <maven.compiler.source>1.7</maven.compiler.source>
+        <maven.compiler.target>1.7</maven.compiler.target>
     </properties>
         
     <dependencies>

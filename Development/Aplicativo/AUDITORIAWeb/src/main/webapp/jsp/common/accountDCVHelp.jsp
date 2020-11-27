@@ -3,9 +3,7 @@
 <%@ taglib uri="http://richfaces.org/a4j" prefix="a4j"%>
 <%@ taglib uri="http://richfaces.org/rich" prefix="rich"%>
 <f:subview id="accountDCVHelp">
-<f:loadBundle
-		basename="com.deceval.ttv.web.resources.messages.MessagesResources"
-		var="msg" />
+
 <rich:modalPanel id="accountDCVHelpPanel" width="600" height="500">
 		<f:facet name="header">
 			<h:panelGroup>

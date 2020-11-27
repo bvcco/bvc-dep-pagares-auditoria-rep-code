@@ -3,7 +3,6 @@
 <%@ taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@ taglib uri="http://java.sun.com/jsf/html" prefix="h"%>
 <f:view id="homeOriginator">
-<f:loadBundle basename="com.deceval.ttv.web.resources.messages.MessagesResources" var="msg"/>
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />

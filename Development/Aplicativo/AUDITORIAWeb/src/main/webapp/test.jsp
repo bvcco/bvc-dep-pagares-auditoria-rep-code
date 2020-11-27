@@ -13,9 +13,7 @@
 <body>
 
 <f:view>
-	<f:loadBundle
-		basename="com.deceval.ttv.web.resources.messages.MessagesResources"
-		var="msg" />
+	
 	<h:form>
 		<h:outputLabel value="#{msg.number1label}"></h:outputLabel>
 		<h:inputText id="number1" value="#{testJSF.number1}"}>
