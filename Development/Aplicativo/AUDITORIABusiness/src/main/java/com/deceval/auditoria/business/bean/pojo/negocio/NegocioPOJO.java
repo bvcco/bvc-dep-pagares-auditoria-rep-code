@@ -147,6 +147,8 @@ public class NegocioPOJO {
 										}
 									}
 								}
+								/*
+								 * 26/11/2020 Fvasquez - CGRANADOS Se comentan las inserciones por autorizacion de arquitectura
 								//Se realizan las inserciones para los campos auditables detectados.
 								Iterator<LogHistorialVO> listaCamposMsg = listaInsercionHistorial.iterator();
 								if(listaCamposMsg != null && listaCamposMsg.hasNext()){
@@ -154,6 +156,7 @@ public class NegocioPOJO {
 									for (;listaCamposMsg.hasNext();)
 										logHistorialDAO.insert(listaCamposMsg.next());
 								}
+								*/
 							}
 						} catch (Exception exc){
 							System.out.println(	"\n [ADVERTENCIA]: Metodo <NegocioPOJO>.<crearAnotacionLog> " + DateUtil.getFechaSistemaCalendar().getTime() +
@@ -163,23 +166,23 @@ public class NegocioPOJO {
 				}
 			} else {
 				System.out.println("\n [ADVERTENCIA]: Metodo <NegocioPOJO>.<crearAnotacionLog> " + DateUtil.getFechaSistemaCalendar().getTime() +
-						"\n NO se inserto al Log de AUDITORIA el mesaje recibido (o alguno de sus detalles), verifique la parametrización del mensaje. Datos:" +
+						"\n NO se inserto al Log de AUDITORIA el mesaje recibido (o alguno de sus detalles), verifique la parametrizaciï¿½n del mensaje. Datos:" +
 						"\n Constante Operacion: " + reqMsgObj.getConstanteReferenciaOperacion() +
 						"\n Constante Origen: " + reqMsgObj.getConstanteReferenciaOrigen() +
 						"\n Valor idUsuario: " + log.getIdUsuario() +
 						"\n Valor userName: " + log.getUserName() +
 						"\n Valor ipUsuario: " + log.getIpUsuario() + 
-						"\n Valor descripción: " + log.getDescripcionAnotacion() + " \n");
+						"\n Valor descripciï¿½n: " + log.getDescripcionAnotacion() + " \n");
 			}
 		} catch(Exception de){
 			System.out.println("\n [ADVERTENCIA]: Metodo <NegocioPOJO>.<crearAnotacionLog> " + DateUtil.getFechaSistemaCalendar().getTime() +
-					"\n NO se inserto al Log de AUDITORIA el mesaje recibido (o alguno de sus detalles), verifique la parametrización del mensaje. Datos:" +
+					"\n NO se inserto al Log de AUDITORIA el mesaje recibido (o alguno de sus detalles), verifique la parametrizaciï¿½n del mensaje. Datos:" +
 					"\n Constante Operacion: " + reqMsgObj.getConstanteReferenciaOperacion() +
 					"\n Constante Origen: " + reqMsgObj.getConstanteReferenciaOrigen() +
 					"\n Valor idUsuario: " + log.getIdUsuario() +
 					"\n Valor userName: " + log.getUserName() +
 					"\n Valor ipUsuario: " + log.getIpUsuario() + 
-					"\n Valor descripción: " + log.getDescripcionAnotacion() + " \n");
+					"\n Valor descripciï¿½n: " + log.getDescripcionAnotacion() + " \n");
 			de.printStackTrace();
 		} finally{
 			try{
@@ -228,9 +231,9 @@ public class NegocioPOJO {
 				sender = sess.createSender(queue);
 				sender.send(msg);
 				sess.close ();
-				resultado = "INFO-001AUD, Anotación enviada a cola JMS.";
+				resultado = "INFO-001AUD, Anotaciï¿½n enviada a cola JMS.";
 			} else
-				resultado = "INFO-002AUD, Datos LOG no pasan validación.";
+				resultado = "INFO-002AUD, Datos LOG no pasan validaciï¿½n.";
 		} catch (Exception e) {
  			resultado = "ERROR-001AUD, al enviar a cola JMS.";
  			e.printStackTrace ();
@@ -285,7 +288,7 @@ public class NegocioPOJO {
 			return moduloDAO.getAll();
 		} catch(Exception de){
 			System.out.println("\n [ADVERTENCIA]: Metodo <NegocioPOJO>.<obtenerListaModulo> " + DateUtil.getFechaSistemaCalendar().getTime() +
-					"\n NO se pudo obtener la lista de los módulos." + " \n");
+					"\n NO se pudo obtener la lista de los mï¿½dulos." + " \n");
 			de.printStackTrace();
 		} finally{
 			try{
@@ -345,7 +348,7 @@ public class NegocioPOJO {
 			return origenDAO.getAll();
 		} catch(Exception de){
 			System.out.println("\n [ADVERTENCIA]: Metodo <NegocioPOJO>.<obtenerListaOrigen> " + DateUtil.getFechaSistemaCalendar().getTime() +
-					"\n NO se pudo obtener la lista de los orígenes." + " \n");
+					"\n NO se pudo obtener la lista de los orï¿½genes." + " \n");
 			de.printStackTrace();
 		} finally{
 			try{
@@ -389,7 +392,7 @@ public class NegocioPOJO {
 	}
 	
 	/**
-	 * Devuelve la lista de códigos de origen
+	 * Devuelve la lista de cï¿½digos de origen
 	 * @param EstructuraConsultaDTO estructuraConsultaDTO
 	 * @return Collection de objetos String
 	 * @author gmarroquin
@@ -405,7 +408,7 @@ public class NegocioPOJO {
 			return logROE.obtenerListaCodigoOrigen(estructuraConsultaDTO);
 		} catch(Exception de){
 			System.out.println("\n [ADVERTENCIA]: Metodo <NegocioPOJO>.<obtenerListaCodigoOrigen> " + DateUtil.getFechaSistemaCalendar().getTime() +
-					"\n NO se pudo obtener la lista de códigos de origen." + " \n");
+					"\n NO se pudo obtener la lista de cï¿½digos de origen." + " \n");
 			de.printStackTrace();
 		} finally{
 			try{
@@ -619,7 +622,7 @@ public class NegocioPOJO {
 			return moduloDAO.findByIdAplicacion(idAplicacion);
 		} catch(Exception de){
 			System.out.println("\n [ADVERTENCIA]: Metodo <NegocioPOJO>.<obtenerListaModuloPorIdAplicacion> " + DateUtil.getFechaSistemaCalendar().getTime() +
-					"\n NO se pudo obtener la lista de los módulos por IdAplicacion." + " \n");
+					"\n NO se pudo obtener la lista de los mï¿½dulos por IdAplicacion." + " \n");
 			de.printStackTrace();
 		} finally{
 			try{
@@ -679,7 +682,7 @@ public class NegocioPOJO {
 			return origenDAO.findByIdAplicacion(idAplicacion);
 		} catch(Exception de){
 			System.out.println("\n [ADVERTENCIA]: Metodo <NegocioPOJO>.<obtenerListaOrigenPorIdAplicacion> " + DateUtil.getFechaSistemaCalendar().getTime() +
-					"\n NO se pudo obtener la lista de los orígenes por IdAplicacion." + " \n");
+					"\n NO se pudo obtener la lista de los orï¿½genes por IdAplicacion." + " \n");
 			de.printStackTrace();
 		} finally{
 			try{
