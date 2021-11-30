@@ -62,36 +62,58 @@
                           </tr>	
                       <tr>
                           <td width="25%" align="right">&nbsp;</td>
-                          <td width="25%" class="txtlogin">&nbsp;&nbsp;&nbsp;Identificacion::</td>
+                          <td width="40%" class="txtlogin"><h:outputText value="#{msg.lb_login_identificacion}"/></td>
                           <td width="25%">	        	
-                              <h:inputText autocomplete="off" id="numeroIdentificacion" size="50" label="Numero de Identificacion" required="true" styleClass="generica" value="#{loginOTPJSFBean.autenticacionUsuarioDTO.identificacionUsuario}"/>
+                              <h:inputText autocomplete="off" id="numeroIdentificacion" size="42" style="font-size: 11px" label="#{msg.lb_login_numero_identificacion}" required="true" styleClass="generica" value="#{loginOTPJSFBean.autenticacionUsuarioDTO.identificacionUsuario}"/>
                           </td>
                           <td width="25%">&nbsp;</td>
                       </tr>
                       <tr>
                           <td width="25%" align="right">&nbsp;</td>
-                          <td width="25%" class="txtlogin">&nbsp;&nbsp;&nbsp;Contraseña::</td>
+                          <td width="40%" class="txtlogin"><h:outputText value="#{msg.lb_login_contrasenia}"/></td>
                           <td width="25%">	        	
-                              <h:inputSecret autocomplete="off" id="passwordUsuario" size="50" label="Contraseña" required="true" styleClass="generica" value="#{loginOTPJSFBean.autenticacionUsuarioDTO.contrasena}"/>
+                              <h:inputSecret autocomplete="off" id="passwordUsuario" size="42" style="font-size: 11px"  label="#{msg.lb_login_contrasenia}" required="true" styleClass="generica" value="#{loginOTPJSFBean.autenticacionUsuarioDTO.contrasena}"/>
                           </td>
                           <td width="25%">&nbsp;</td>
                       </tr>
+
+                  <tr>
+                      <td width="25%" align="right">&nbsp;</td>
+                      <td width="40%" class="txtlogin">OTP Generado por:</td>
+                      <td width="25%">
+
+                          <h:selectOneMenu   style="width: 283px "  value="#{loginOTPJSFBean.tipoGeneracionOpt}">
+                              <f:selectItem itemValue="1" itemLabel="#{msg.lb_login_aplicacion_movil}"/>
+                              <f:selectItem itemValue="2" itemLabel="#{msg.lb_login_correo_electronico}"/>
+                              <f:selectItem itemValue="3" itemLabel="#{msg.lb_login_token_fisico}"/>
+                              <a4j:support />
+
+                          </h:selectOneMenu>
+                      </td>
+
+                  </tr>
+
+
                       <tr>
                           <td width="25%" align="right">&nbsp;</td>
-                          <td width="25%" class="txtlogin">&nbsp;&nbsp;&nbsp;OTP::</td>
-                          <td width="25%">	        	
-                              <h:inputText autocomplete="off" id="otp"  styleClass="generica" label="OTP" required="true" size="50" value="#{loginOTPJSFBean.autenticacionUsuarioDTO.codigoOtp}"/>
+                          <td width="40%" class="txtlogin">C&oacute;digo OTP:</td>
+                          <td width="25%">
+                              <h:inputText autocomplete="off" id="otp"  styleClass="generica" label="OTP" required="false" size="42" style="font-size: 11px"  value="#{loginOTPJSFBean.autenticacionUsuarioDTO.codigoOtp}"/>
                           </td>
                           <td width="25%">&nbsp;</td>
                       </tr>
-                      
-                      <tr>
-                          <td colspan="4" align="center">
-                              <h:commandButton value="Ingresar" id="btnIngreso" 
-                                               action="#{loginOTPJSFBean.autenticarUsuario}" 
-                                               styleClass="button"></h:commandButton>
-                          </td>
-                      </tr>
+
+                  </tr>
+                  <table align="center" cellpadding="2" cellspacing="0" style="align-items: center; margin-left:49%; margin-right:49%;><tr><td>
+                      <h:panelGrid id="botonera" columns="2"  >
+                          <a4j:commandButton id="btnsolicitarotp" value="Solicitar OTP" styleClass="button"
+                                           action="#{loginOTPJSFBean.solicitarOtpMail}"></a4j:commandButton>
+                          <a4j:commandButton id="btningreso" value="Ingresar" styleClass="button"
+                                           action="#{loginOTPJSFBean.autenticarUsuario}"
+                          ></a4j:commandButton>
+                      </h:panelGrid>
+                  </td></tr></table>
+
 		    </table></td>  
 		  </tr>
 		  <tr>

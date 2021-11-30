@@ -131,7 +131,7 @@ public class FiltroAutenticacion implements Filter
     	
 		UsuarioData usuarioVO = null;
 
-        String ipUsuario =  ValidadorIp.obtenerIpDeHeader(request.getHeader("X-Forwarded-For")) ;
+        String ipUsuario = ValidadorIp.obtenerIpDeHeader(request.getHeader("X-Forwarded-For")) ;
         String ipServidor = request.getLocalAddr();
 
 		//FJVL- 28/10/2020 Se agregan nuevos headers a la cabecera segun recomendacion de ETH
@@ -150,6 +150,7 @@ public class FiltroAutenticacion implements Filter
 			session.removeAttribute("mensaje_autorizacion");
 		}
      
+		AUDITORIALogger.getInstance().debugMessage("Valor variable de sesión: " + session.getAttribute("autenticadoOTP"));
 		/*******************************************************************
 		 * INICIO Obtener datos de autorizacion dentro de la aplicacion
 		 *******************************************************************/
@@ -188,8 +189,10 @@ public class FiltroAutenticacion implements Filter
                         }
 
                         ServiciosSeguridad servicios = new ServiciosSeguridad();
+                        AUDITORIALogger.getInstance().debugMessage("1Numero identificacion FiltroAutenticacion:else " + encodedClientHeader);
                         usuarioVO = servicios.getUsuarioPorDistinguishedName(encodedClientHeader);
 
+                        AUDITORIALogger.getInstance().debugMessage("2Usauriovo if FiltroAutenticacion: " + usuarioVO);
                         /**
                          * Se registra en BD el ingreso a la aplicacion *
                          */
@@ -208,9 +211,10 @@ public class FiltroAutenticacion implements Filter
                         ServiciosSeguridad servicios = new ServiciosSeguridad();
                         //AUDITORIALogger.getInstance().debugMessage("Numero de Identificacion***|" + numeroIdentificacion + "|");
 
+						AUDITORIALogger.getInstance().debugMessage("3Numero identificacion FiltroAutenticacion:else " + numeroIdentificacion);
                         usuarioVO = servicios
                                 .getUsuarioPorIdentificacion(numeroIdentificacion.trim());
-
+                        AUDITORIALogger.getInstance().debugMessage("4Usauriovo else FiltroAutenticacion: " + usuarioVO);
                         if (usuarioVO != null) {
                             validar.actualizarAcceso(usuarioVO, true);
                             usuarioVO.setFechaIngreso(usuarioVO
@@ -237,8 +241,8 @@ public class FiltroAutenticacion implements Filter
                         /**
                          * OJO BORRAR *
                          */
-                        /*
-                        if(request.getParameter("j_username") != null){
+
+                        /*if(request.getParameter("j_username") != null){
                          nombreCompleto = request.getParameter("j_username");
                          if (nombreCompleto!=null) System.out.println("nombreCompleto:"+nombreCompleto);
                          ServiciosSeguridad servicios = new ServiciosSeguridad();
@@ -251,8 +255,8 @@ public class FiltroAutenticacion implements Filter
                          }else{
                          System.out.println("No hubo resultado en BD getUsuarioPorNombresApellidos |"+nombreCompleto+"|");
                          }
-                         }
-                         */
+                         }*/
+
                         /**
                          * OJO BORRAR *
                          */
@@ -317,6 +321,7 @@ public class FiltroAutenticacion implements Filter
           }
           else
           {
+			  AUDITORIALogger.getInstance().debugMessage("5Error en FiltroAutenticación: usuariovo nulo - " + nombreCompleto);
         	  if (!nombreCompleto.equals("")) {
         		  session.setAttribute("mensaje_autorizacion", "El usuario (" + nombreCompleto + ") No se encontró en la Base de Datos.");
         	  }
@@ -445,9 +450,21 @@ public class FiltroAutenticacion implements Filter
         if (!nombreCompleto.equals(""))
         {
 	        java.text.SimpleDateFormat sdf = new java.text.SimpleDateFormat ("yyyy-MM-dd HH:mm:ss");
+			try {
+				AUDITORIALogger.getInstance().debugMessage("6Error en FiltroAutenticación catch 1: " + e.getMessage());
+				e.printStackTrace();
+			} catch (Exception exception) {
+				exception.printStackTrace();
+			}
 	        //AUDITORIALogger.getInstance().errorMessage(sdf.format(new Date())+" ExcepcionAcceso "+e.getMessage()+" ("+nombreCompleto+")");
         }
     } catch (Exception e) {
+		try {
+			AUDITORIALogger.getInstance().debugMessage("7Error en FiltroAutenticación catch 2: " + e.getMessage());
+			e.printStackTrace();
+		} catch (Exception exception) {
+			exception.printStackTrace();
+		}
         throw new ServletException(e);
     } 
     

@@ -72,6 +72,9 @@ public interface Constants {
 	 * Constantes que hacen referencia a los identificadores para las tablas de la tabla Homologación
 	 */
 	public static final String CONSTANTE_APP_AUDITORIA_TABLA_APLICACIONES = "CONSTANTE_APP_AUDITORIA_TABLA_APLICACIONES";
-	public static final String CONSTANTE_APP_SEGURIDAD_TABLA_APLICACIONES = "CONSTANTE_APP_SEGURIDAD_TABLA_APLICACIONES";	
+	public static final String CONSTANTE_APP_SEGURIDAD_TABLA_APLICACIONES = "CONSTANTE_APP_SEGURIDAD_TABLA_APLICACIONES";
 
+	public static final String TENANT_APLICATION_ID = "TENANT_APLICATION_ID";
+	public static final String TENANT_URL = "TENANT_URL";
+	public static final String TENANT_ORIGEN = "TENANT_ORIGEN";
 }

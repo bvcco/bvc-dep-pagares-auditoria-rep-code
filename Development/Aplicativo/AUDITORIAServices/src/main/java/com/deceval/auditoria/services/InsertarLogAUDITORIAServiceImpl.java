@@ -11,6 +11,7 @@ import javax.jws.WebService;
 import com.deceval.auditoria.dto.EstructuraListaMsgDTO;
 import com.deceval.auditoria.dto.RequestMsgInsertAudObjectDTO;
 import com.deceval.auditoria.integration.NegocioDelegate;
+import com.deceval.auditoria.util.log.AUDITORIALogger;
 import com.deceval.auditoria.vo.LogHistorialVO;
 import com.deceval.auditoria.vo.LogVO;
 import com.deceval.auditoria.vo.ObjetoVO;
@@ -39,6 +40,9 @@ public class InsertarLogAUDITORIAServiceImpl implements InsertarLogAUDITORIAPort
             log.setIpUsuario(request.getIpUsuario());
             log.setIpServidor(request.getIpServidor());
             log.setDescripcionAnotacion(request.getDescripcionAnotacion());
+            AUDITORIALogger.getInstance().infoMessage("descripcion en el request: OJO RAYAR DESCRIPCION" + request.getDescripcionAnotacion());
+            System.out.println("descripcion en el request: OJO RAYAR DESCRIPCION" + request.getDescripcionAnotacion());
+
 
             //Bloque para el mapeo de datos del LOG HISTORICO
             List<EstructuraListaMsgDTO> listaEstructuraTablas = null;
@@ -69,6 +73,12 @@ public class InsertarLogAUDITORIAServiceImpl implements InsertarLogAUDITORIAPort
             try {
                 NegocioDelegate delegate = new NegocioDelegate();
                 resultado = delegate.sendAnotacionLog2Queue(reqMgsObj);
+                AUDITORIALogger.getInstance().infoMessage("descripcion en el request: OJO RAYAR RESULTADO" + request.getDescripcionAnotacion());
+                System.out.println("descripcion en el request: OJO RAYAR RESULTADO" + request.getDescripcionAnotacion());
+
+                AUDITORIALogger.getInstance().infoMessage("descripcion en el request: DEL MENSAJE QUE SE ENVIA" + reqMgsObj.getLogVO().getDescripcionAnotacion());
+                System.out.println("descripcion en el request: OJO RAYAR DESCRIPCION" + reqMgsObj.getLogVO().getDescripcionAnotacion());
+
             } catch (Exception e) {
                 e.printStackTrace();
                 resultado = "ERROR-001AUD, al enviar a cola JMS";
