@@ -76,7 +76,7 @@
                           </td>
                           <td width="25%">&nbsp;</td>
                       </tr>
-
+                      
                   <tr>
                       <td width="25%" align="right">&nbsp;</td>
                       <td width="40%" class="txtlogin">OTP Generado por:</td>
@@ -85,7 +85,6 @@
                           <h:selectOneMenu   style="width: 283px "  value="#{loginOTPJSFBean.tipoGeneracionOpt}">
                               <f:selectItem itemValue="1" itemLabel="#{msg.lb_login_aplicacion_movil}"/>
                               <f:selectItem itemValue="2" itemLabel="#{msg.lb_login_correo_electronico}"/>
-                              <f:selectItem itemValue="3" itemLabel="#{msg.lb_login_token_fisico}"/>
                               <a4j:support />
 
                           </h:selectOneMenu>

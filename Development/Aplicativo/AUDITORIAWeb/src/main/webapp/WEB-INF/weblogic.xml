@@ -5,19 +5,19 @@
 
 
 
-    <jsp-descriptor>
-        <page-check-seconds>1</page-check-seconds>
-        <verbose>false</verbose>
-    </jsp-descriptor>
+      <jsp-descriptor>
+          <page-check-seconds>1</page-check-seconds>
+          <verbose>false</verbose>
+      </jsp-descriptor>
 
-    <!--Comentar en ambientes sin cluster como desarrollo -->
-    <session-descriptor>
-        <cookie-secure>true</cookie-secure>
-        <persistent-store-type>replicated</persistent-store-type>
-        <cookie-http-only>false</cookie-http-only>
-        <url-rewriting-enabled>false</url-rewriting-enabled>
-        <cookie-name>Auditoria</cookie-name>
-    </session-descriptor>
+    <!--Comentar en ambientes sin cluster como desarrollo-->
+  <session-descriptor>
+      <cookie-secure>true</cookie-secure>
+      <persistent-store-type>replicated</persistent-store-type>
+      <cookie-http-only>false</cookie-http-only>
+      <url-rewriting-enabled>false</url-rewriting-enabled>
+      <cookie-name>Auditoria</cookie-name>
+  </session-descriptor>
 
 
 </weblogic-web-app>

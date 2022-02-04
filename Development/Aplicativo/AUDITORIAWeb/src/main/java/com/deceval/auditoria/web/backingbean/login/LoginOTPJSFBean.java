@@ -61,10 +61,14 @@ public class LoginOTPJSFBean extends BaseJSFBean implements Serializable{
                 datosCorrectosIngresoMail = validarDatosCorrestosIngresoMail();
                 this.autenticacionUsuarioDTO.setMetodoAutenticacion(ConfiguracionGeneral.getInstance()
                         .obtenerVariable(DatosConstantes.METODO_AUTENTICACION_LOGIN_TOKEN_EMAIL));
-            } else if (tipoGeneracionOpt != null && tipoGeneracionOpt.equals("3")) {
+
+            }/*
+            else if (tipoGeneracionOpt != null && tipoGeneracionOpt.equals("3")) {
                 this.autenticacionUsuarioDTO.setMetodoAutenticacion(ConfiguracionGeneral.getInstance()
                         .obtenerVariable(DatosConstantes.METODO_AUTENTICACION_LOGIN_TOKEN_FISICO));
-            }
+            }*/
+
+
             if (this.autenticacionUsuarioDTO.getMetodoAutenticacion() != null && !this.autenticacionUsuarioDTO.getMetodoAutenticacion().isEmpty()) {
                 if (datosCorrectosIngresoMail) {
                     RespuestaAutenticacionOTPDTO respuesta = autenticacionOTP.autenticarUsuario(this.autenticacionUsuarioDTO);
@@ -116,7 +120,7 @@ public class LoginOTPJSFBean extends BaseJSFBean implements Serializable{
 
         return resultado;
     }
-
+      
     public void solicitarOtpMail() {
         FacesMessage message = new FacesMessage();
         try {
@@ -202,7 +206,7 @@ public class LoginOTPJSFBean extends BaseJSFBean implements Serializable{
             return false;
         }
     }
-
+	
     public AutenticacionUsuarioDTO getAutenticacionUsuarioDTO() {
         return autenticacionUsuarioDTO;
     }
@@ -210,7 +214,7 @@ public class LoginOTPJSFBean extends BaseJSFBean implements Serializable{
     public void setAutenticacionUsuarioDTO(AutenticacionUsuarioDTO autenticacionUsuarioDTO) {
         this.autenticacionUsuarioDTO = autenticacionUsuarioDTO;
     }
-
+    
     public String getTipoGeneracionOpt() {
         return tipoGeneracionOpt;
     }

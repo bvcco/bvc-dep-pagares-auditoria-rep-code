@@ -236,13 +236,13 @@ public class FiltroAutenticacion implements Filter
 
                         session.setAttribute("mensaje_autorizacion", "No se encontró un certificado valido.");
                         url = PAGINA_LOGIN;
-                        throw new ExcepcionAcceso("errorDeAcceso");
+                          throw new ExcepcionAcceso("errorDeAcceso");
 
                         /**
                          * OJO BORRAR *
                          */
 
-                        /*if(request.getParameter("j_username") != null){
+                       /*if(request.getParameter("j_username") != null){
                          nombreCompleto = request.getParameter("j_username");
                          if (nombreCompleto!=null) System.out.println("nombreCompleto:"+nombreCompleto);
                          ServiciosSeguridad servicios = new ServiciosSeguridad();
