@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<handler-chains xmlns="http://java.sun.com/xml/ns/javaee">
+  <handler-chain>
+    <handler>
+      <handler-name>com.deceval.auditoria.services.Handler</handler-name>
+      <handler-class>com.deceval.auditoria.services.Handler</handler-class>
+    </handler>
+  </handler-chain>
+</handler-chains>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+  <appender name="roll-auditoria-faces" class="org.apache.log4j.DailyRollingFileAppender">
+    <param name="File" value="D:/deceval.development/AUDITORIA/development/logs/RichFaces.log" />
+    <param name="DatePattern" value="'.'yyyy-MM-dd" />
+    <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern" value="%d{yyyy-MMM-dd HH:mm:ss,SSS} [%t] %c %x%n %-5p %m%n" />
+    </layout>
+  </appender>
+
+  <appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+        <param name="ConversionPattern" value="%d %-5p [%t] %C{2} (%F:%L) - %m%n" />
+    </layout>
+  </appender>
+
+  <logger name="org.ajax4jsf">
+    <priority value="INFO" />
+    <appender-ref ref="roll-auditoria-faces" />
+  </logger>
+
+  <logger name="org.richfaces">
+    <priority value="INFO" />
+    <appender-ref ref="roll-auditoria-faces" />
+  </logger>
+  
+</log4j:configuration>

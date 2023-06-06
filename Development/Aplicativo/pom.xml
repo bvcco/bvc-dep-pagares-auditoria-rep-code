@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.deceval.auditoria</groupId>
+    <artifactId>AUDITORIA</artifactId>
+    <version>1.0.0</version>
+    <packaging>pom</packaging>
+    <name>AUDITORIA</name>
+    <modules>
+        <module>AUDITORIADataAccess</module>
+        <module>AUDITORIAIntegration</module>
+        <module>AUDITORIAException</module>
+        <module>AUDITORIAServices</module>
+        <module>AUDITORIAVO</module>
+        <module>AUDITORIAUtil</module>
+        <module>AUDITORIAScheduler</module>
+        <module>AUDITORIABusiness</module>
+        <module>AUDITORIAWeb</module>
+        <module>AUDITORIAEAR</module>
+        <module>AUDITORIAServiceClient</module>
+    </modules>
+    <dependencies>
+    </dependencies>
+  
+  
+</project>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='utf-8'?>
+<quartz xmlns="http://www.opensymphony.com/quartz/JobSchedulingData"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.opensymphony.com/quartz/JobSchedulingData
+  http://www.opensymphony.com/quartz/xml/job_scheduling_data_1_5.xsd"
+  version="1.5">
+  <job>
+    <job-detail>
+      <name>exampleJob1</name>
+      <group>testJobs</group>
+      <description>Test Job Number 1</description>
+      <job-class>com.deceval.auditoria.scheduler.job.ExampleJob</job-class>
+      <volatility>false</volatility>
+      <durability>false</durability>
+      <recover>false</recover>
+      <job-data-map>
+        <entry>
+          <key>name</key>
+          <value>Johann XX Camilo</value>
+        </entry>
+        <entry>
+          <key>surname</key>
+          <value>Olarte Diaz</value>
+        </entry>
+      </job-data-map>
+    </job-detail>  
+	<trigger>
+            <simple>
+                <name>ExampleTrigger2</name>
+                <group>testJobs</group>
+                <job-name>exampleJob1</job-name>
+                <job-group>testJobs</job-group>
+                <start-time>2008-06-06 05:48:00 PM</start-time>
+                <!-- repeat indefinitely every 60 seconds -->
+                <repeat-count>-1</repeat-count>
+                <repeat-interval>40000</repeat-interval>
+            </simple>
+    </trigger>
+  </job>
+</quartz>
